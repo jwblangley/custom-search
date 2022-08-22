@@ -54,7 +54,10 @@ const getRedirect = function (sanitisedSearchString) {
   }
 
   const [command, args] = lm
-  return config[command].replace(
+  if (args === "") {
+    return config[command]["home"]
+  }
+  return config[command]["search"].replace(
     placeholder,
     args.replaceAll(SPACE, ENCODED_SPACE)
   )
