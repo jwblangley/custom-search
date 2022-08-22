@@ -1,4 +1,4 @@
-import { debug, placeholder, fallback, config, shortcuts } from "./config.js"
+import { debug, placeholder, fallback, config, aliases } from "./config.js"
 
 const SPACE = " "
 const ENCODED_SPACE = "%20"
@@ -36,11 +36,11 @@ const longestMatch = function (validKeys, key, delimeter) {
 }
 
 const getRedirect = function (sanitisedSearchString) {
-  const maybeShortcut = sanitisedSearchString.split(SPACE)[0]
-  if (maybeShortcut in shortcuts) {
+  const maybeAlias = sanitisedSearchString.split(SPACE)[0]
+  if (maybeAlias in aliases) {
     sanitisedSearchString = sanitisedSearchString.replace(
-      maybeShortcut,
-      shortcuts[maybeShortcut]
+      maybeAlias,
+      aliases[maybeAlias]
     )
   }
 

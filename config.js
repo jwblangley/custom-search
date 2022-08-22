@@ -11,15 +11,15 @@ const config = {
   },
 }
 
-const _shortcuts = {
+const _aliases = {
   youtube: ["yt"],
 }
 
-let shortcuts = {}
-for (const k in _shortcuts) {
-  for (const v of _shortcuts[k]) {
-    shortcuts[v] = k
+let aliases = {}
+for (const k in _aliases) {
+  for (const v of _aliases[k]) {
+    aliases[v] = k
   }
 }
 
-export { debug, placeholder, fallback, config, shortcuts }
+export { debug, placeholder, fallback, config, aliases }
