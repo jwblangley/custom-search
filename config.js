@@ -1,11 +1,11 @@
-const debug = true
+const debug = false
 
 const placeholder = "%s"
 
 const fallback = "https://www.google.com/search?q=%s"
 
 const config = {
-  test: "hello%s",
+  youtube: "https://www.youtube.com/results?search_query=%s",
 }
 
 export { debug, placeholder, fallback, config }
