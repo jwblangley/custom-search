@@ -47,7 +47,7 @@ const getRedirect = function (sanitisedSearchString) {
   const lm = longestMatch(config, sanitisedSearchString, SPACE)
 
   if (!lm) {
-    return fallback.replace(
+    return config[fallback]["search"].replace(
       placeholder,
       sanitisedSearchString.replaceAll(SPACE, ENCODED_SPACE)
     )
@@ -66,8 +66,6 @@ const getRedirect = function (sanitisedSearchString) {
 window.onload = function () {
   const fallbackDOM = document.getElementById("fallback")
   fallbackDOM.innerHTML = fallback
-  const configDOM = document.getElementById("config")
-  configDOM.innerHTML = JSON.stringify(config)
 
   const debugTable = document.getElementById("debug-table")
 
