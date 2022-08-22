@@ -1,8 +1,11 @@
-const debug = false
+const debug = true
 
 const placeholder = "%s"
 
-const fallback = "https://www.google.com/search?q=%s"
+const fallback = {
+  home:"https://www.google.com",
+  search:"https://www.google.com/search?q=%s",
+}
 
 const config = {
   youtube: {
@@ -22,4 +25,4 @@ for (const k in _aliases) {
   }
 }
 
-export { debug, placeholder, fallback, config, aliases }
+export { debug, placeholder, fallback, config, aliases, _aliases }

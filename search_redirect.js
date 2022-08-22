@@ -47,7 +47,7 @@ const getRedirect = function (sanitisedSearchString) {
   const lm = longestMatch(config, sanitisedSearchString, SPACE)
 
   if (!lm) {
-    return fallback.replace(
+    return fallback["search"].replace(
       placeholder,
       sanitisedSearchString.replaceAll(SPACE, ENCODED_SPACE)
     )
