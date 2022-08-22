@@ -64,30 +64,30 @@ const getRedirect = function (sanitisedSearchString) {
 }
 
 window.onload = function () {
+  const searchString = window.location.search
+  const sanitisedSearchString = searchString
+    .replace("?q=", "")
+    .replaceAll(ENCODED_SPACE, SPACE)
+    .trim()
+  const redirect = getRedirect(sanitisedSearchString)
+
+  if (!debug) {
+    window.location.replace(redirect)
+    return
+  }
+
   const fallbackDOM = document.getElementById("fallback")
   fallbackDOM.innerHTML = fallback
 
   const debugTable = document.getElementById("debug-table")
 
-  const searchString = window.location.search
   debugTable.appendChild(createTableRow("Search string", searchString))
 
-  const sanitisedSearchString = searchString
-    .replace("?q=", "")
-    .replaceAll(ENCODED_SPACE, SPACE)
-    .trim()
   debugTable.appendChild(
     createTableRow("Sanitised search string", sanitisedSearchString)
   )
 
-  const redirect = getRedirect(sanitisedSearchString)
   const outputDOM = document.getElementById("output")
   outputDOM.innerHTML = redirect
   outputDOM.setAttribute("href", redirect)
-
-  if (debug) {
-    return
-  }
-
-  window.location.replace(redirect)
 }
