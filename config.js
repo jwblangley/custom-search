@@ -16,6 +16,7 @@ const config = {
 }
 
 const _aliases = {
+  google: ["g"],
   youtube: ["yt"],
 }
 

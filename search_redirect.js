@@ -66,8 +66,6 @@ const getRedirect = function (sanitisedSearchString) {
 window.onload = function () {
   const fallbackDOM = document.getElementById("fallback")
   fallbackDOM.innerHTML = fallback
-  const configDOM = document.getElementById("config")
-  configDOM.innerHTML = JSON.stringify(config)
 
   const debugTable = document.getElementById("debug-table")
 
