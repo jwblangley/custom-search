@@ -2,12 +2,13 @@ const debug = true
 
 const placeholder = "%s"
 
-const fallback = {
-  home:"https://www.google.com",
-  search:"https://www.google.com/search?q=%s",
-}
+const fallback = "google"
 
 const config = {
+  google: {
+    home: "https://www.google.com",
+    search: "https://www.google.com/search?q=%s",
+  },
   youtube: {
     home: "https://www.youtube.com",
     search: "https://www.youtube.com/results?search_query=%s",
