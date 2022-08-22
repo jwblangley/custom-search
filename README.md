@@ -10,7 +10,7 @@ Custom, personalised search engine to redirect to your favourite sites.
 
 1. Set up GitHub pages, using your default branch
 
-1. Set the GitHub pages link as your default search engine, for example in Google Chrome
+1. Set the GitHub pages link as your default search engine with the parameter `?q=%s`, for example in Google Chrome
 
 1. Enjoy!
 
