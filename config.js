@@ -5,7 +5,21 @@ const placeholder = "%s"
 const fallback = "https://www.google.com/search?q=%s"
 
 const config = {
-  youtube: "https://www.youtube.com/results?search_query=%s",
+  youtube: {
+    home: "https://www.youtube.com",
+    search: "https://www.youtube.com/results?search_query=%s",
+  },
 }
 
-export { debug, placeholder, fallback, config }
+const _aliases = {
+  youtube: ["yt"],
+}
+
+let aliases = {}
+for (const k in _aliases) {
+  for (const v of _aliases[k]) {
+    aliases[v] = k
+  }
+}
+
+export { debug, placeholder, fallback, config, aliases }

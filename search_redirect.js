@@ -1,4 +1,4 @@
-import { debug, placeholder, fallback, config } from "./config.js"
+import { debug, placeholder, fallback, config, aliases } from "./config.js"
 
 const SPACE = " "
 const ENCODED_SPACE = "%20"
@@ -36,6 +36,14 @@ const longestMatch = function (validKeys, key, delimeter) {
 }
 
 const getRedirect = function (sanitisedSearchString) {
+  const maybeAlias = sanitisedSearchString.split(SPACE)[0]
+  if (maybeAlias in aliases) {
+    sanitisedSearchString = sanitisedSearchString.replace(
+      maybeAlias,
+      aliases[maybeAlias]
+    )
+  }
+
   const lm = longestMatch(config, sanitisedSearchString, SPACE)
 
   if (!lm) {
@@ -46,7 +54,10 @@ const getRedirect = function (sanitisedSearchString) {
   }
 
   const [command, args] = lm
-  return config[command].replace(
+  if (args === "") {
+    return config[command]["home"]
+  }
+  return config[command]["search"].replace(
     placeholder,
     args.replaceAll(SPACE, ENCODED_SPACE)
   )
