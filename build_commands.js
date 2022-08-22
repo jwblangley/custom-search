@@ -31,7 +31,11 @@ window.onload = function () {
     .forEach((k, i) => {
       if (k !== fallback) {
         commandsTable.appendChild(
-          createTableRow(k, config[k]["home"], "aliases" in config[k] ? config[k]["aliases"] : [])
+          createTableRow(
+            k,
+            config[k]["home"],
+            "aliases" in config[k] ? config[k]["aliases"] : []
+          )
         )
       }
     })

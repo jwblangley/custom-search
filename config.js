@@ -7,7 +7,7 @@ const fallback = "google"
 const config = {
   commands: {
     home: "./commands.html",
-    search: "./commands.html#%s"
+    search: "./commands.html#%s",
   },
   google: {
     home: "https://www.google.com",
@@ -23,8 +23,8 @@ const config = {
 
 let aliases = {}
 for (const k in config) {
-  if (! ("aliases" in config[k])) {
-    break
+  if (!("aliases" in config[k])) {
+    continue
   }
   for (const v of config[k]["aliases"]) {
     aliases[v] = k
