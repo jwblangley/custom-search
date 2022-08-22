@@ -1,4 +1,4 @@
-import { fallback, config, _aliases } from "./config.js"
+import { fallback, config } from "./config.js"
 
 const createTableRow = function (name, home, aliases) {
   const tr = document.createElement("tr")
@@ -21,7 +21,7 @@ window.onload = function () {
     createTableRow(
       `Fallback: ${fallback}`,
       config[fallback]["home"],
-      fallback in _aliases ? _aliases[fallback] : []
+      "aliases" in config[fallback] ? config[fallback]["aliases"] : []
     )
   )
 
@@ -31,7 +31,7 @@ window.onload = function () {
     .forEach((k, i) => {
       if (k !== fallback) {
         commandsTable.appendChild(
-          createTableRow(k, config[k]["home"], k in _aliases ? _aliases[k] : [])
+          createTableRow(k, config[k]["home"], "aliases" in config[k] ? config[k]["aliases"] : [])
         )
       }
     })
